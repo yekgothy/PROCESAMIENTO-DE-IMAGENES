@@ -49,10 +49,10 @@
   <!-- Escena AR -->
   <a-scene
     id="ar-scene"
-    mindar-image="imageTargetSrc: ./banderas/targets.mind; autoStart: false; maxTrack: 1;"
+    mindar-image="imageTargetSrc: ./banderas/targets.mind; autoStart: true; maxTrack: 1;"
     renderer="colorManagement: true; physicallyCorrectLights: true;"
     vr-mode-ui="enabled: false"
-    device-orientation-permission-ui="enabled: false"
+    device-orientation-permission-ui="enabled: true"
   >
     <!-- Assets (videos y modelos pre-cargados) -->
     <a-assets id="ar-assets"></a-assets>
