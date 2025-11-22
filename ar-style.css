@@ -244,7 +244,8 @@ loader-message {
   box-shadow: var(--sombra);
   width: min(90vw, 520px);
   text-align: center;
-  z-index: 8500;
+  z-index: 100;
+  pointer-events: none;
 }
 
 .scan-hint strong { color: var(--dorado-intenso); }
