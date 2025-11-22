@@ -48,7 +48,12 @@ a-scene {
   align-items: center;
   justify-content: center;
   background: radial-gradient(circle at center, rgba(5, 5, 5, 0.92), rgba(0, 0, 0, 0.85));
-  z-index: 13000;
+  z-index: 9999;
+  pointer-events: none;
+}
+
+.loader-content {
+  pointer-events: auto;
 }
 
 .loader-content {
@@ -92,7 +97,7 @@ loader-message {
   justify-content: center;
   padding: 2rem;
   background: radial-gradient(circle at top, rgba(7, 7, 7, 0.96), rgba(3, 3, 3, 0.94));
-  z-index: 12000;
+  z-index: 9998;
   transition: opacity 0.45s ease, visibility 0.45s ease;
 }
 
