@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Trivia inmersiva · Eclipse 2026</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="trivia.css">
+</head>
+<body>
+  <main class="page-wrapper">
+    <header class="page-header">
+      <p class="eyebrow">Procesamiento de Imágenes · Mundial 2026</p>
+      <h1>Trivia interactiva del Mundial</h1>
+      <p class="lede">Pon a prueba tus reflejos y tu memoria histórica. Cada respuesta correcta suma puntos dorados que puedes sincronizar con el visor AR.</p>
+      <div class="header-actions">
+        <a class="ghost-btn" href="index.html">Volver al visor</a>
+        <a class="primary-btn" href="manual.html">Leer instrucciones</a>
+      </div>
+    </header>
+
+    <section class="score-board">
+      <div>
+        <p class="label">Puntuación actual</p>
+        <p class="score"><span id="currentScore">0</span> / <span id="totalQuestions">10</span></p>
+      </div>
+      <p class="status" id="questionNumber">Pregunta 1 de 10</p>
+    </section>
+
+    <section class="question-card" id="questionCard">
+      <div class="question-text" id="questionText"></div>
+      <div class="options" id="options"></div>
+      <button class="next-btn" id="nextBtn">Siguiente pregunta</button>
+    </section>
+
+    <section class="result-card" id="resultCard">
+      <h2>Trivia completada</h2>
+      <div class="final-score" id="finalScore"></div>
+      <p id="resultMessage"></p>
+      <button class="restart-btn" id="restartBtn">Reiniciar partida</button>
+    </section>
+  </main>
+
+  <script src="trivia.js"></script>
+</body>
+</html>
