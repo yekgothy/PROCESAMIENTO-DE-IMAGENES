@@ -22,12 +22,39 @@ document.addEventListener("DOMContentLoaded", async () => {
   const youtubeLink = document.getElementById("youtubeLink");
 
   let experienceStarted = false;
+  let cameraPermissionGranted = false;
 
-  const beginExperience = () => {
+  const requestCameraPermission = async () => {
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+      stream.getTracks().forEach(track => track.stop());
+      cameraPermissionGranted = true;
+      return true;
+    } catch (err) {
+      console.error("Permiso de cámara denegado:", err);
+      if (loaderMessage) {
+        loaderMessage.textContent = "Se requiere acceso a la cámara para continuar.";
+      }
+      alert("Eclipse 2026 necesita acceso a tu cámara para escanear marcadores. Por favor, acepta los permisos.");
+      return false;
+    }
+  };
+
+  const beginExperience = async () => {
     if (!experienceStarted) {
+      if (!cameraPermissionGranted) {
+        const permitted = await requestCameraPermission();
+        if (!permitted) return;
+      }
+      
       experienceStarted = true;
       if (landingScreen) {
         landingScreen.classList.add("landing-dismissed");
+      }
+      
+      const arSystem = scene.systems["mindar-image-system"];
+      if (arSystem && arSystem.start) {
+        await arSystem.start();
       }
     }
     if (scanHint) {
